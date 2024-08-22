@@ -1,0 +1,171 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// models
+model Product {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  name            String   
+  slug            String   @unique
+  brand           String
+  color           String
+  sellingPrice    Int      
+  retailPrice     Int      
+  discount        Int      
+  category        category
+  subCategory     String
+  productDetails  String
+  productCode     String
+  tags            String[]
+  sizes           size[]  
+  images          image[]
+  reviews         Review[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  searchTags      String
+}
+
+enum category {
+  MEN
+  WOMEN 
+  KIDS
+}
+
+type size {
+  size   String
+  stock  Int
+}
+
+type image {
+  url        String
+  public_id  String
+}
+
+model Cart {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  slug          String   
+  brand         String
+  color         String 
+  size          String
+  quantity      Int
+  sellingPrice  Int      
+  retailPrice   Int      
+  discount      Int     
+  image         String
+  productId     String    
+  userId        String    
+}
+
+model Wishlist {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  slug          String   
+  brand         String
+  color         String
+  sellingPrice  Int      
+  retailPrice   Int      
+  discount      Int      
+  image         String
+  productId     String    
+  userId        String    
+}
+
+model Order{
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  transactionId     String
+  subTotal          Int
+  totalAmount       Int
+  shippingAddress   address
+  orderItems        product[]   
+  orderStatus       String
+  customerId        String 
+  customerName      String
+  shipping          String
+  shippingCost      Int
+  isPaid            Boolean
+  paidAt            DateTime @default(now())
+  confirmedAt       DateTime @default(now())
+  shippedAt         DateTime @default(now())
+  outForDeliveryAt  DateTime @default(now())
+  deliveredAt       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @default(now())
+}
+
+
+type product {
+  name          String
+  slug          String   
+  brand         String
+  color         String 
+  size          String
+  quantity      Int 
+  price         Int    
+  retailPrice   Int  
+  image         String
+  productId     String 
+}
+
+type address {
+  name       String
+  address    String
+  city       String
+  state      String
+  postalCode String
+  country    String
+}
+
+
+
+model Review {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String
+  name          String
+  rating        Int
+  comment       String
+  createdAt     DateTime
+  productId     String    @db.ObjectId
+  product       Product   @relation(fields: [productId], references: [id])
+}
+
+
+model Dashboard {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  dashboardId     String   @unique
+  totalProducts   Int
+  totalSales      Int
+  totalRevenue    Int
+}
+  
+
+model Hero {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  brand         String
+  image         String
+  headline      String
+  subHeadline   String
+  link          String
+  href          String
+}
+
+
+model ShopBy {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  title         String   @unique
+  image         String
+  discount      String
+  type          String
+  href          String
+}
