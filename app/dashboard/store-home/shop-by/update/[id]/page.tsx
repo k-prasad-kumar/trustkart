@@ -12,4 +12,8 @@ const UpdateHeroPage = async ({ params }: { params: { id: string } }) => {
     </>
   );
 };
+
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+
 export default UpdateHeroPage;

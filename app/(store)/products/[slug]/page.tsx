@@ -5,7 +5,7 @@ import {
   fetchRelatedProducts,
 } from "@/lib/actions/product-actions";
 import { checkBag, checkWishlist } from "@/lib/actions/user-actions";
-import { ProductDBInterface, ProductInterface } from "@/lib/types";
+import { ProductDetailsDBInterface, ProductInterface } from "@/lib/types";
 import { currentUser } from "@clerk/nextjs/server";
 
 const ProductDetailsPage = async ({ params }: { params: { slug: string } }) => {
@@ -13,14 +13,16 @@ const ProductDetailsPage = async ({ params }: { params: { slug: string } }) => {
   const userId = user?.id!;
 
   const { slug } = params;
-  const product: ProductDBInterface | null = await fetchProductBySlug(slug);
+  const product: ProductDetailsDBInterface | null = await fetchProductBySlug(
+    slug
+  );
   const relatedProducts: ProductInterface[] | null = await fetchRelatedProducts(
     slug
   );
   const bag = await checkBag(slug, userId);
   const wishlist = await checkWishlist(slug, userId);
 
-  const reviews = product?.reviews;
+  const reviews = product?.reviews!;
   const reviewCount = reviews?.length;
   const totalRating = reviews?.reduce((sum, review) => sum + review.rating, 0);
 
@@ -43,4 +45,8 @@ const ProductDetailsPage = async ({ params }: { params: { slug: string } }) => {
     </div>
   );
 };
+
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+
 export default ProductDetailsPage;

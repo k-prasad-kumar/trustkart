@@ -5,3 +5,6 @@ export const stripe = new Stripe(key, {
   apiVersion: "2024-06-20",
   typescript: true,
 });
+
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";

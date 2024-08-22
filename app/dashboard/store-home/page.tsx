@@ -19,4 +19,8 @@ const StoreHomepage = () => {
     </div>
   );
 };
+
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+
 export default StoreHomepage;

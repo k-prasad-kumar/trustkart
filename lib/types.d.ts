@@ -36,6 +36,26 @@ export interface ProductDBInterface {
   searchTags: string;
 }
 
+export interface ProductDetailsDBInterface {
+  id: string;
+  name: string | undefined;
+  slug: string | undefined;
+  brand: string | undefined;
+  color: string | undefined;
+  sellingPrice: number | undefined;
+  retailPrice: number | undefined;
+  discount: number | undefined;
+  category: "MEN" | "WOMEN" | "KIDS";
+  subCategory: string | undefined;
+  productDetails: string | undefined;
+  productCode: string | undefined;
+  tags: string[];
+  sizes: { size: string; stock: number }[];
+  images: { url: string; public_id: string }[];
+  searchTags: string;
+  reviews: ReviewDBInterface[];
+}
+
 export interface WishlistInterface {
   name: string;
   slug: string;

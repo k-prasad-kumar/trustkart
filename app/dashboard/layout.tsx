@@ -17,4 +17,8 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
     </>
   );
 };
+
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+
 export default DashboardLayout;
