@@ -18,6 +18,3 @@ export const deleteImageCloudinary = async (public_id: string) => {
     console.log(error);
   }
 };
-
-export const maxDuration = 60;
-export const dynamic = "force-dynamic";

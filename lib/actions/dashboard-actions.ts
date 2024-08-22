@@ -92,6 +92,3 @@ export const fetchDashboard = async () => {
     return null;
   }
 };
-
-export const maxDuration = 60;
-export const dynamic = "force-dynamic";
