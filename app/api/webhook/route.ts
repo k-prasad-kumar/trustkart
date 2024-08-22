@@ -100,8 +100,6 @@ export async function POST(req: NextRequest) {
 
       revalidatePath(`/orders`);
       revalidatePath(`/bag`);
-      revalidatePath(`/dashboard`);
-      revalidatePath(`/dashboard/orders`);
     }
 
     return new NextResponse("Order created", { status: 200 });
