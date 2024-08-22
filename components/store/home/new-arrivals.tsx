@@ -7,14 +7,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ShopByInterface } from "@/lib/types";
+import { ProductDBInterface, ShopByInterface } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 
 export const NewArrivals = ({
   shopBy,
 }: {
-  shopBy: ShopByInterface[] | null;
+  shopBy: ProductDBInterface[] | null;
 }) => {
   return (
     <Carousel
@@ -30,10 +30,10 @@ export const NewArrivals = ({
               key={item.id}
               className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
             >
-              <Link href={item.href} className="p-1">
+              <Link href={`/products/${item.slug}`} className="p-1">
                 <div className="flex flex-col aspect-square items-center justify-center p-1 border shadow relative">
                   <Image
-                    src={item.image}
+                    src={item.images[0].url}
                     width={100}
                     height={100}
                     sizes="100%"
@@ -42,7 +42,7 @@ export const NewArrivals = ({
                     className="w-full h-auto"
                   />
                   <p className="text-center font-semibold my-1 truncate w-full px-1">
-                    {item.title}
+                    {item.brand}
                   </p>
                   {/* <p className="text-center text-sm">Shop Now</p> */}
                   {/* <p className="text-center text-sm absolute top-1 right-1 text-white bg-primary">

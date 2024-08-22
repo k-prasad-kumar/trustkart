@@ -34,7 +34,6 @@ export interface ProductDBInterface {
   sizes: { size: string; stock: number }[];
   images: { url: string; public_id: string }[];
   searchTags: string;
-  reviews: ReviewDBInterface[];
 }
 
 export interface WishlistInterface {

@@ -391,3 +391,6 @@ export const fetchReview = async (productId: string, userId: string) => {
     return null;
   }
 };
+
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";

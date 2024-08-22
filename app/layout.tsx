@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-import { Footer } from "@/components/store/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -16,4 +16,8 @@ const OrderDetailsPage = async ({ params }: { params: { id: string } }) => {
     </>
   );
 };
+
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+
 export default OrderDetailsPage;
