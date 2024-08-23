@@ -16,7 +16,7 @@ export const Footer = () => {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col mt-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
           <div className="w-full flex flex-col gap-2">
-            <h1>ONLINE SHOPPING</h1>
+            <h1 className="text-sm">ONLINE SHOPPING</h1>
             <Link href={"#"} className="hover:underline text-sm">
               Men
             </Link>
@@ -28,7 +28,7 @@ export const Footer = () => {
             </Link>
           </div>
           <div className="w-full flex flex-col gap-2">
-            <h1>CUSTOMER POLICIES</h1>
+            <h1 className="text-sm">CUSTOMER POLICIES</h1>
             <Link href={"#"} className="hover:underline text-sm">
               Contact Us
             </Link>
