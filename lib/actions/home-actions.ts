@@ -6,6 +6,7 @@ import * as z from "zod";
 import { PrismaClient } from "@prisma/client";
 import { HeroSchema, ShopBySchema } from "../schemas/product-schema";
 import { revalidatePath } from "next/cache";
+import { HeroInterface, ShopByInterface } from "../types";
 
 const prisma = new PrismaClient();
 
@@ -77,7 +78,7 @@ export const deleteShopBy = async (id: string) => {
 
 export const fetchHero = async () => {
   try {
-    const hero = await prisma.hero.findMany();
+    const hero: HeroInterface[] | null = await prisma.hero.findMany();
     return hero;
   } catch (error) {
     return null;
@@ -86,7 +87,7 @@ export const fetchHero = async () => {
 
 export const fetchHeroById = async (id: string) => {
   try {
-    const hero = await prisma.hero.findUnique({
+    const hero: HeroInterface | null = await prisma.hero.findUnique({
       where: {
         id,
       },
@@ -99,7 +100,7 @@ export const fetchHeroById = async (id: string) => {
 
 export const fetchShopBy = async () => {
   try {
-    const shopBy = await prisma.shopBy.findMany();
+    const shopBy: ShopByInterface[] | null = await prisma.shopBy.findMany();
     return shopBy;
   } catch (error) {
     return null;
@@ -108,7 +109,7 @@ export const fetchShopBy = async () => {
 
 export const fetchShopById = async (id: string) => {
   try {
-    const shopBy = await prisma.shopBy.findUnique({
+    const shopBy: ShopByInterface | null = await prisma.shopBy.findUnique({
       where: {
         id,
       },
@@ -121,7 +122,7 @@ export const fetchShopById = async (id: string) => {
 
 export const fetchShopByType = async (type: string) => {
   try {
-    const shopBy = await prisma.shopBy.findMany({
+    const shopBy: ShopByInterface[] = await prisma.shopBy.findMany({
       where: {
         type: type,
       },
