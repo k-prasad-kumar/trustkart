@@ -1,0 +1,9 @@
+# netlify.toml
+
+[build]
+  command   = "npm run build"
+  functions = "out_functions"
+
+[dev]
+  functions = "out_functions"
+  framework = "#static"
