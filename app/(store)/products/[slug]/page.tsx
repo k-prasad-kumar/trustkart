@@ -5,7 +5,11 @@ import {
   fetchRelatedProducts,
 } from "@/lib/actions/product-actions";
 import { checkBag, checkWishlist } from "@/lib/actions/user-actions";
-import { ProductDetailsDBInterface, ProductInterface } from "@/lib/types";
+import {
+  ProductDetailsDBInterface,
+  ProductInterface,
+  ReviewDBInterface,
+} from "@/lib/types";
 import { currentUser } from "@clerk/nextjs/server";
 
 const ProductDetailsPage = async ({ params }: { params: { slug: string } }) => {
@@ -13,9 +17,7 @@ const ProductDetailsPage = async ({ params }: { params: { slug: string } }) => {
   const userId = user?.id!;
 
   const { slug } = params;
-  const product: ProductDetailsDBInterface | null = await fetchProductBySlug(
-    slug
-  );
+  const product = await fetchProductBySlug(slug);
   const relatedProducts: ProductInterface[] | null = await fetchRelatedProducts(
     slug
   );

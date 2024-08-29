@@ -42,9 +42,7 @@ import { CldUploadButton } from "next-cloudinary";
 import { Categories } from "@/lib/data/categories-data";
 import Image from "next/image";
 import { updateProduct } from "@/lib/actions/product-actions";
-import MultiText from "./multi-text";
 import FormError from "@/components/form-error";
-import FormSuccess from "@/components/form-success";
 import { deleteImageCloudinary } from "@/lib/actions/delete-image-cloudinary";
 import { ProductInterface } from "@/lib/types";
 import { useRouter } from "next/navigation";
@@ -290,47 +288,6 @@ export const UpdateProductForm = ({
                     <FormLabel>Product Details</FormLabel>
                     <FormControl>
                       <Textarea {...field} disabled={isPending} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="productCode"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel>Product Code</FormLabel>
-                    <FormControl>
-                      <Input {...field} disabled={isPending} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* tags */}
-              <FormField
-                control={form.control}
-                name="tags"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Tags</FormLabel>
-                    <FormControl>
-                      <MultiText
-                        placeholder="Name, brand, category, color, size, etc."
-                        value={field.value}
-                        onChange={(tag) =>
-                          field.onChange([...field.value, tag])
-                        }
-                        onRemove={(tagToRemove) =>
-                          field.onChange([
-                            ...field.value.filter((tag) => tag !== tagToRemove),
-                          ])
-                        }
-                        isPending={isPending}
-                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

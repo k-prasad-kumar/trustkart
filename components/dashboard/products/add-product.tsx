@@ -42,7 +42,6 @@ import { CldUploadButton } from "next-cloudinary";
 import { Categories } from "@/lib/data/categories-data";
 import Image from "next/image";
 import { addProduct } from "@/lib/actions/product-actions";
-import MultiText from "./multi-text";
 import FormError from "@/components/form-error";
 import FormSuccess from "@/components/form-success";
 import { deleteImageCloudinary } from "@/lib/actions/delete-image-cloudinary";
@@ -70,8 +69,7 @@ export const AddProductForm = () => {
       category: "MEN" || "WOMEN" || "KIDS",
       subCategory: "",
       productDetails: "",
-      productCode: "",
-      tags: [],
+      tags: [" "],
       sizes: [{ size: "", stock: 0 }],
       images: [{ url: "", public_id: "" }],
     },
@@ -303,47 +301,6 @@ export const AddProductForm = () => {
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="productCode"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel>Product Code</FormLabel>
-                    <FormControl>
-                      <Input {...field} disabled={isPending} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* tags */}
-              <FormField
-                control={form.control}
-                name="tags"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Tags</FormLabel>
-                    <FormControl>
-                      <MultiText
-                        placeholder="Name, brand, category, color, size, price, discount etc."
-                        value={field.value}
-                        onChange={(tag) =>
-                          field.onChange([...field.value, tag])
-                        }
-                        onRemove={(tagToRemove) =>
-                          field.onChange([
-                            ...field.value.filter((tag) => tag !== tagToRemove),
-                          ])
-                        }
-                        isPending={isPending}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
               <h2 className="text-sm font-medium">Sizes & Stock</h2>
               {fields.map((field, index) => {
                 return (
@@ -413,6 +370,7 @@ export const AddProductForm = () => {
               })}
 
               {/* preview images start */}
+              <h2 className="text-sm font-medium">Product Images</h2>
               <div className="flex gap-2">
                 {images?.map((image, idx) => (
                   <div
@@ -441,7 +399,6 @@ export const AddProductForm = () => {
               </div>
               {/* preview images end */}
 
-              <h2 className="text-sm font-medium">Product Images</h2>
               <FormField
                 control={form.control}
                 name="images"

@@ -26,7 +26,6 @@ model Product {
   category        category
   subCategory     String
   productDetails  String
-  productCode     String
   tags            String[]
   sizes           size[]  
   images          image[]

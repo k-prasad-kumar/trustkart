@@ -26,7 +26,6 @@ export const addProduct = async (values: z.infer<typeof ProductSchema>) => {
     category,
     subCategory,
     productDetails,
-    productCode,
     tags,
     sizes,
     images,
@@ -42,7 +41,7 @@ export const addProduct = async (values: z.infer<typeof ProductSchema>) => {
 
     if (existingProduct) return { error: "Product already exists" };
 
-    tags.unshift(
+    tags?.unshift(
       name.toLowerCase(),
       brand.toLowerCase(),
       color.toLowerCase(),
@@ -54,8 +53,8 @@ export const addProduct = async (values: z.infer<typeof ProductSchema>) => {
 
     // creating searchTags using tags
     const searchTags = tags
-      .map((tag: string) => tag.trim().toLowerCase())
-      .join(" ");
+      ?.map((tag: string) => tag.trim().toLowerCase())
+      .join(" ")!;
 
     await prisma.product.create({
       data: {
@@ -69,7 +68,6 @@ export const addProduct = async (values: z.infer<typeof ProductSchema>) => {
         category,
         subCategory,
         productDetails,
-        productCode,
         tags,
         sizes,
         images,
@@ -106,7 +104,6 @@ export const updateProduct = async (
     category,
     subCategory,
     productDetails,
-    productCode,
     tags,
     sizes,
     images,
@@ -118,12 +115,21 @@ export const updateProduct = async (
     if (!validatedData?.data?.images || imagesLength < 4)
       return { error: "Upload at least 4 images" };
 
+    tags?.unshift(
+      name.toLowerCase(),
+      brand.toLowerCase(),
+      color.toLowerCase(),
+      String(sellingPrice).toLowerCase(),
+      String(discount).toLowerCase(),
+      category.toLowerCase(),
+      subCategory.toLowerCase()
+    );
+
     // creating searchTags using tags
     const searchTags = tags
-      .map((tag: string) => tag.trim().toLowerCase())
-      .join(" ");
+      ?.map((tag: string) => tag.trim().toLowerCase())
+      .join(" ")!;
 
-    console.log(values);
     await prisma.product.update({
       where: { id },
       data: {
@@ -137,7 +143,6 @@ export const updateProduct = async (
         category,
         subCategory,
         productDetails,
-        productCode,
         tags,
         sizes,
         images,

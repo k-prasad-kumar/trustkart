@@ -11,8 +11,7 @@ export const ProductSchema = z.object({
   category: z.enum(["MEN", "WOMEN", "KIDS"]),
   subCategory: z.string().min(1, "Select Sub category"),
   productDetails: z.string().min(1, "Product details required").trim(),
-  productCode: z.string().min(1, "Product code is required").trim(),
-  tags: z.array(z.string()).min(1, "At least 4 tags are required"),
+  tags: z.array(z.string()).optional(),
   sizes: z
     .array(
       z.object({

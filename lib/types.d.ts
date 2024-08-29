@@ -10,7 +10,6 @@ export interface ProductInterface {
   category: "MEN" | "WOMEN" | "KIDS";
   subCategory: string | undefined;
   productDetails: string | undefined;
-  productCode: string | undefined;
   tags: string[];
   sizes: { size: string; stock: number }[];
   images: { url: string; public_id: string }[];
@@ -29,7 +28,6 @@ export interface ProductDBInterface {
   category: "MEN" | "WOMEN" | "KIDS";
   subCategory: string | undefined;
   productDetails: string | undefined;
-  productCode: string | undefined;
   tags: string[];
   sizes: { size: string; stock: number }[];
   images: { url: string; public_id: string }[];
