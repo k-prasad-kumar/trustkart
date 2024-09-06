@@ -81,6 +81,7 @@ export const ChangeQuantity = ({
           className="p-3 border cursor-pointer"
           onClick={() => handleQuantity("minus")}
           disabled={isPending || quantity <= 1}
+          asChild
         >
           <Minus size={14} />
         </Button>
@@ -90,6 +91,7 @@ export const ChangeQuantity = ({
           className="p-3 border cursor-pointer"
           onClick={() => handleQuantity("plus")}
           disabled={isPending || quantity >= size?.stock! || quantity >= 5}
+          asChild
         >
           <Plus size={14} />
         </Button>
