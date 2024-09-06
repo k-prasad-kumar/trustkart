@@ -49,7 +49,7 @@ export const NewArrivals = ({
                     ₹{item.discount}
                   </p> */}
                   <p className="text-xs text-emerald-500 tracking-wider">
-                    ₹ {item.discount}.00
+                    ₹ {item.sellingPrice}.00
                   </p>
                   <p className="absolute top-1 left-0 text-white bg-primary text-[10px] pr-2 pl-1">
                     NEW
