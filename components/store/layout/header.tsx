@@ -34,9 +34,6 @@ export const Header = async () => {
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <div className="hidden md:flex items-center">
-            <More role={role as string} />
-          </div>
           <SearchForm />
 
           <div className="flex md:hidden items-center">
@@ -54,6 +51,9 @@ export const Header = async () => {
 
           <ClerkUserButton />
 
+          <div className="hidden md:flex items-center">
+            <More role={role as string} />
+          </div>
           <ModeToggle />
         </div>
       </nav>
