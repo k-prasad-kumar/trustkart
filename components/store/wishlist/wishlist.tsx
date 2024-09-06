@@ -100,7 +100,7 @@ export const Wishlist = ({
                   </div>
 
                   <div
-                    className="absolute top-1 right-1 w-fit border p-1 rounded-full bg-gray-200 cursor-pointer"
+                    className="absolute top-1 right-1 w-fit p-1 rounded-full bg-white text-red-500 cursor-pointer"
                     onClick={() => handleWishlist(item.id)}
                   >
                     <X size={18} strokeWidth={1.4} />
