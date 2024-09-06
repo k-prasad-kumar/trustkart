@@ -47,6 +47,7 @@ export const ChangeQuantity = ({
       updateQuantity(id, quantity)
         .then((data) => {
           if (data?.success) {
+            toast.success(data?.success);
             return;
           } else {
             toast.error(data?.error);
@@ -83,7 +84,9 @@ export const ChangeQuantity = ({
           disabled={isPending || quantity <= 1}
           asChild
         >
-          <Minus size={14} />
+          <div>
+            <Minus size={14} />
+          </div>
         </Button>
         <p className="px-2">{quantity}</p>
         <Button
@@ -93,7 +96,9 @@ export const ChangeQuantity = ({
           disabled={isPending || quantity >= size?.stock! || quantity >= 5}
           asChild
         >
-          <Plus size={14} />
+          <div>
+            <Plus size={14} />
+          </div>
         </Button>
         {warning && <p className="text-[#ff905a] text-sm">{warning}</p>}
       </div>
