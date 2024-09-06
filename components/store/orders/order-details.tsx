@@ -11,12 +11,12 @@ import { Separator } from "@/components/ui/separator";
 
 export const OrderDetails = ({ order }: { order: OrderDBInterface | null }) => {
   const totalRetailPrice = order?.orderItems.reduce(
-    (acc, item) => acc + item.retailPrice,
+    (acc, item) => acc + item.retailPrice * item.quantity,
     0
   );
 
-  const discount =
-    totalRetailPrice! - (order?.totalAmount! - order?.shippingCost!);
+  // const totalDiscount = totalRetailPrice! - order?.totalAmount!;
+  const discount = totalRetailPrice! - order?.totalAmount!;
   return (
     <div className="w-full py-4 md:p-4 space-y-4">
       <div className="p-4 w-full border space-y-1">
@@ -62,19 +62,24 @@ export const OrderDetails = ({ order }: { order: OrderDBInterface | null }) => {
                       {item.quantity} x {item.name}
                     </p>
                     <p className="text-xs font font-medium min-w-fit">
-                      ₹ {item.retailPrice}
+                      ₹ {item.retailPrice * item.quantity}
                     </p>
                   </div>
                   <div key={item.slug} className="flex justify-between">
                     <p className="text-xs">Discount</p>
                     <p className="text-xs font font-medium">
-                      - ₹ {item.retailPrice - item.price}
+                      - ₹{" "}
+                      {item.retailPrice * item.quantity -
+                        item.price * item.quantity}
                     </p>
                   </div>
                   <div key={item.slug} className="flex justify-between">
                     <p className="text-xs">Discounted Price</p>
                     <p className="text-xs font font-medium">
-                      ₹ {item.retailPrice - (item.retailPrice - item.price)}
+                      ₹{" "}
+                      {item.retailPrice * item.quantity -
+                        (item.retailPrice * item.quantity -
+                          item.price * item.quantity)}
                     </p>
                   </div>
                   <Separator />
