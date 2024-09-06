@@ -15,7 +15,6 @@ export const OrderDetails = ({ order }: { order: OrderDBInterface | null }) => {
     0
   );
 
-  // const totalDiscount = totalRetailPrice! - order?.totalAmount!;
   const discount = totalRetailPrice! - order?.totalAmount!;
   return (
     <div className="w-full py-4 md:p-4 space-y-4">

@@ -36,7 +36,7 @@ export const DeleteHero = ({ id }: { id: string }) => {
     });
   };
   return (
-    <div className="flex w-full h-screen justify-center items-center">
+    <div className="flex w-full h-[calc(100vh-4rem)] justify-center items-center">
       <Card className="w-full md:w-1/2">
         <CardHeader>
           <CardTitle className="text-2xl font-medium">

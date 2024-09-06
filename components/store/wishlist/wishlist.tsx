@@ -34,7 +34,7 @@ export const Wishlist = ({
   return (
     <>
       {wishlist && wishlist.length <= 0 ? (
-        <div className="w-full h-screen flex justify-center items-center">
+        <div className="w-full h-[calc(100vh-4rem)] flex justify-center items-center">
           <div className="flex flex-col justify-center items-center w-full sm:w-1/2 lg:w-1/3 gap-4">
             <Image
               src={emptyWishlist}

@@ -26,7 +26,7 @@ export const Products = ({
   return (
     <>
       {products && products.length <= 0 ? (
-        <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
+        <div className="w-full h-[calc(100vh-4rem)] flex flex-col justify-center items-center gap-4">
           <div className="w-full sm:w-1/2 flex items-center justify-center">
             <Image
               src={noProduct}

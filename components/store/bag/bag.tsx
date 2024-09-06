@@ -58,7 +58,7 @@ export const Bag = ({
   return (
     <>
       {bag && bag.length <= 0 ? (
-        <div className="w-full h-screen flex justify-center items-center">
+        <div className="w-full h-[calc(100vh-4rem)] flex justify-center items-center">
           <div className="flex flex-col justify-center items-center w-full sm:w-1/2 gap-4">
             <div className="w-full sm:w-1/2 flex items-center justify-center">
               <Image

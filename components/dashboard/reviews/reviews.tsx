@@ -61,7 +61,7 @@ export const DashboardReviews = async ({ page }: { page: string }) => {
             <TableBody>
               {reviews &&
                 reviews.map((review: ReviewDBInterface) => (
-                  <TableRow key={review.id} className="border">
+                  <TableRow key={review.id}>
                     <TableCell className="truncate">{review.name}</TableCell>
                     <TableCell className="truncate">{review.comment}</TableCell>
                     <TableCell className="truncate">

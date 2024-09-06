@@ -34,10 +34,10 @@ export const Header = async () => {
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <SearchForm />
           <div className="hidden md:flex items-center">
             <More role={role as string} />
           </div>
+          <SearchForm />
 
           <div className="flex md:hidden items-center">
             <Link href={`/wishlist`}>
