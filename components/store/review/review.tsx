@@ -14,7 +14,7 @@ export const Review = ({
   slug: string;
 }) => {
   return (
-    <div className="space-y-4 p-2 md:p-4 border flex flex-col my-4 max-w-[70%] sm:max-w-[93%]">
+    <div className="space-y-4 p-2 md:p-4 border flex flex-col my-4 w-full">
       <div className="flex items-center justify-between">
         <p className="text-sm flex items-center gap-2 text-emerald-500">
           <Star size={14} fill="#03a685" />
