@@ -276,6 +276,7 @@ export const fetchRelatedProducts = async (slug: string) => {
 export const fetchRecentProducts = async () => {
   try {
     const recentProducts = await prisma.product.findMany({
+      orderBy: { createdAt: "desc" },
       take: 20,
     });
     return recentProducts;
