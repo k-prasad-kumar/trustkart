@@ -93,7 +93,7 @@ export const updateProduct = async (
   const validatedData = ProductSchema.safeParse(values);
   if (!validatedData.success) return { error: "Invalid Fields" };
 
-  const {
+  let {
     name,
     slug,
     brand,
@@ -114,6 +114,8 @@ export const updateProduct = async (
 
     if (!validatedData?.data?.images || imagesLength < 4)
       return { error: "Upload at least 4 images" };
+
+    tags = [""];
 
     tags?.unshift(
       name.toLowerCase(),
