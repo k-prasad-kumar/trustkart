@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { revalidatePath } from "next/cache";
 import { updateSalesCount } from "@/lib/actions/dashboard-actions";
+import { updateProductStock } from "@/lib/actions/product-actions";
 
 const prisma = new PrismaClient();
 
@@ -62,6 +63,14 @@ export async function POST(req: NextRequest) {
           quantity: item.quantity,
           productId: item.price.product.metadata.productId,
         };
+      });
+
+      orderItems?.map(async (item: any) => {
+        await updateProductStock(
+          item.productId as string,
+          item.size as string,
+          item.quantity as number
+        );
       });
 
       await prisma.order.create({

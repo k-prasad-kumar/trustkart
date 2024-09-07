@@ -284,3 +284,25 @@ export const fetchRecentProducts = async () => {
     return null;
   }
 };
+
+export const updateProductStock = async (
+  id: string,
+  size: string,
+  quantity: number
+) => {
+  try {
+    const product = await prisma.product.findFirst({ where: { id } });
+    if (!product) return { error: "Product not found" };
+    console.log(product);
+    let sizes = product.sizes.map((s) => {
+      if (s.size === size) s.stock - quantity;
+
+      return s;
+    });
+    console.log(sizes);
+    await prisma.product.update({ where: { id }, data: { sizes } });
+    return { success: "Product stock updated successfully" };
+  } catch (error) {
+    return { error: "Something went wrong!" };
+  }
+};
