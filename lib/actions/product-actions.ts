@@ -293,9 +293,9 @@ export const updateProductStock = async (
   try {
     const product = await prisma.product.findFirst({ where: { id } });
     if (!product) return { error: "Product not found" };
-    console.log(product);
+
     let sizes = product.sizes.map((s) => {
-      if (s.size === size) s.stock - quantity;
+      if (s.size === size) return { size: s.size, stock: s.stock - quantity };
 
       return s;
     });
