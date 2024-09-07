@@ -299,7 +299,7 @@ export const updateProductStock = async (
 
       return s;
     });
-    console.log(sizes);
+
     await prisma.product.update({ where: { id }, data: { sizes } });
     return { success: "Product stock updated successfully" };
   } catch (error) {
