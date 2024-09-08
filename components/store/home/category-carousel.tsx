@@ -42,7 +42,7 @@ export const CategoryCarousel = ({
                     className="w-full h-auto"
                   />
                   <p className="text-center font-semibold my-1 truncate w-full px-1">
-                    T-Shirts
+                    {item.title}
                   </p>
                   <p className="text-center text-xs text-orange-400">
                     UP TO {item.discount}% OFF

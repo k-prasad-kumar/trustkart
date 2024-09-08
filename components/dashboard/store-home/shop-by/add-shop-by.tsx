@@ -90,7 +90,7 @@ export const AddShopByForm = () => {
                   name="title"
                   render={({ field }) => (
                     <FormItem className="w-full md:w-1/2">
-                      <FormLabel>Brand</FormLabel>
+                      <FormLabel>Title</FormLabel>
                       <FormControl>
                         <Input type="text" {...field} disabled={isPending} />
                       </FormControl>
