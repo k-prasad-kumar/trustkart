@@ -27,7 +27,7 @@ export const Search = ({ placeHolder }: { placeHolder: string }) => {
       <Input
         type="text"
         placeholder={placeHolder}
-        className="w-1/2 md:w-1/3"
+        className="w-full"
         onChange={handleSearch}
       />
     </>

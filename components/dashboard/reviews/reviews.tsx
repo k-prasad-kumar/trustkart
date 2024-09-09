@@ -39,7 +39,7 @@ export const DashboardReviews = async ({ page }: { page: string }) => {
   const count = res?.count;
   return (
     <>
-      <Card>
+      <Card className="my-4">
         <CardHeader>
           <CardTitle className="text-2xl">Reviews</CardTitle>
           <CardDescription>Manage your reviews</CardDescription>
@@ -63,7 +63,9 @@ export const DashboardReviews = async ({ page }: { page: string }) => {
                 reviews.map((review: ReviewDBInterface) => (
                   <TableRow key={review.id}>
                     <TableCell className="truncate">{review.name}</TableCell>
-                    <TableCell className="truncate">{review.comment}</TableCell>
+                    <TableCell className="truncate max-w-72">
+                      {review.comment}
+                    </TableCell>
                     <TableCell className="truncate">
                       {" "}
                       <span className="text-lg">&#9734; </span> {review.rating}
@@ -82,12 +84,13 @@ export const DashboardReviews = async ({ page }: { page: string }) => {
                         <DialogContent className="sm:max-w-[425px]">
                           <DialogHeader>
                             <DialogTitle>{review.name}</DialogTitle>
-                            <DialogDescription>
-                              {review.comment}
-                            </DialogDescription>
+
                             <DialogDescription className="flex gap-2 items-center">
                               <Star size={16} fill="#03a685" strokeWidth={0} />{" "}
                               {review.rating}
+                            </DialogDescription>
+                            <DialogDescription>
+                              {review.comment}
                             </DialogDescription>
                           </DialogHeader>
 

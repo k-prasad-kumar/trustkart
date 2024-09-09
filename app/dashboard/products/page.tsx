@@ -13,7 +13,7 @@ const ProductsPage = ({
   const page = searchParams?.page || "1";
   return (
     <div className="flex flex-col w-full gap-4 py-8">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-4 sm:gap-14 md:gap-56 lg:gap-72">
         <Search placeHolder="Search products" />
         <Button asChild>
           <Link href={"/dashboard/products/add"} className="flex space-x-1">

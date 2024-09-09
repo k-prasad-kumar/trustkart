@@ -99,9 +99,7 @@ export const Bag = ({
                       />
                     </div>
                     <div className="w-4/6 sm:w-4/5 flex flex-col px-2 py-3 relative">
-                      <h2 className="text-sm font-semibold truncate">
-                        {item.brand}
-                      </h2>
+                      <h2 className="font-semibold truncate">{item.brand}</h2>
                       <p className="text-sm truncate">{item.name}</p>
                       <p className="text-sm space-x-1 truncate py-2">
                         <span className="font-semibold">
@@ -144,7 +142,7 @@ export const Bag = ({
             </div>
             <div className="w-full md:w-2/6 lg:w-2/5 h-fit border">
               <div className="p-4">
-                <h1 className="text-sm font-medium">
+                <h1 className="text-sm font-semibold">
                   PRICE DETAILS ({bag?.length} items)
                 </h1>
                 <div className="flex justify-between mt-4">

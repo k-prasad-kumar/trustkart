@@ -56,7 +56,7 @@ export const OrderItem = async ({
                   userId={userId}
                   name={name}
                   orderId={orderId}
-                  title={`${review?.rating} Edit Review`}
+                  title={`Edit Review`}
                   review={review}
                 />
               ) : (

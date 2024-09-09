@@ -39,7 +39,7 @@ const DashboardPage = async () => {
             <h1 className="text-2xl font-semibold">{total?.totalProducts}</h1>
           </CardContent>
           <CardFooter>
-            <CardDescription>
+            <CardDescription className="font-semibold text-primary">
               <Link href={"/dashboard/products"}>View details</Link>
             </CardDescription>
           </CardFooter>
@@ -55,7 +55,7 @@ const DashboardPage = async () => {
             <h1 className="text-2xl font-semibold">{usersCount}</h1>
           </CardContent>
           <CardFooter>
-            <CardDescription>
+            <CardDescription className="font-semibold text-primary">
               <Link href={"/dashboard/users"}>View details</Link>
             </CardDescription>
           </CardFooter>
@@ -71,7 +71,7 @@ const DashboardPage = async () => {
             <h1 className="text-2xl font-semibold">{total?.totalSales}</h1>
           </CardContent>
           <CardFooter>
-            <CardDescription>
+            <CardDescription className="font-semibold text-primary">
               <Link href={"/dashboard/orders"}>View details</Link>
             </CardDescription>
           </CardFooter>
@@ -90,7 +90,9 @@ const DashboardPage = async () => {
             </h1>
           </CardContent>
           <CardFooter>
-            <CardDescription>View details</CardDescription>
+            <CardDescription className="font-semibold text-primary">
+              View details
+            </CardDescription>
           </CardFooter>
         </Card>
       </div>

@@ -11,7 +11,7 @@ const OrdersPage = ({
   return (
     <>
       <div className="flex flex-col w-full gap-4 py-8">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center w-full sm:w-1/2 md:w-1/3">
           <Search placeHolder="Search orders" />
         </div>
         <Orders q={q} page={page} />

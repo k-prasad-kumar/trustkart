@@ -189,7 +189,7 @@ export const ProductDetails = ({
               </p>
 
               <div className="text-sm my-8 space-y-4">
-                <p>SELECT SIZE</p>
+                <p className="font-semibold">SELECT SIZE</p>
                 {error && <p className="text-destructive">{error}</p>}
                 <div className={`flex items-center flex-wrap gap-4`}>
                   {product?.sizes.map((size, index) => (
@@ -220,7 +220,7 @@ export const ProductDetails = ({
               </div>
 
               <div className="p-0 space-y-4 mt-14">
-                <p className="text-sm">PRODUCT DETAILS</p>
+                <p className="text-sm font-semibold">PRODUCT DETAILS</p>
                 <p className="text-sm">{product && product.productDetails}</p>
               </div>
               <div className="w-full h-14 flex justify-between sm:justify-start gap-4 mt-14">
@@ -268,7 +268,9 @@ export const ProductDetails = ({
           </div>
           <Separator />
           <div className="w-full my-8">
-            <h1 className="my-8 tracking-widest text-lg">SIMILAR PRODUCTS</h1>
+            <h1 className="my-8 tracking-widest text-xl font-bold">
+              SIMILAR PRODUCTS
+            </h1>
 
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mt-4 mb-14">
               {relatedProducts &&
