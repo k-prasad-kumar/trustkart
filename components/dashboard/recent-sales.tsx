@@ -27,7 +27,7 @@ export const RecentSales = async () => {
     <>
       <Card className="h-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Sales</CardTitle>
+          <CardTitle className="text-2xl">Recent Sales</CardTitle>
           <CardDescription>
             Manage your Sales and view sales performance
           </CardDescription>

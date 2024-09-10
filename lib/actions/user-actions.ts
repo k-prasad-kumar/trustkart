@@ -211,6 +211,7 @@ export const fetchOrders = async (q: string, page: string) => {
 export const fetchRecentOrders = async () => {
   try {
     const orders: OrderDBInterface[] = await prisma.order.findMany({
+      orderBy: { createdAt: "desc" },
       take: 5,
     });
 
