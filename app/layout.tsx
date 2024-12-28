@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +35,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <Suspense fallback={<div className="text-center m-auto text-xl">Loading...</div>}>
+              {children}
+            </Suspense>;
+            
             <Toaster />
           </ThemeProvider>
         </body>
