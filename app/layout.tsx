@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import { Suspense } from "react";
+import loading from "./loading.gif";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,15 +37,8 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Suspense fallback={<div className="w-full h-full flex items-center justify-center">
-                {/* <Image
-                  src="/loading.gif"
-                  alt="Loading..."
-                  width={50}
-                  height={50}
-                  className="m-auto"
-                /> */}
-                <video src="/loading.mp4"></video>
-              </div>}>
+              <Image src={loading} alt="Loading..." className="m-auto" />
+            </div>}>
               {children}
             </Suspense>;
             
