@@ -35,7 +35,16 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Suspense fallback={<div className="text-center m-auto text-xl">Loading...</div>}>
+            <Suspense fallback={<div className="w-full h-full flex items-center justify-center">
+                {/* <Image
+                  src="/loading.gif"
+                  alt="Loading..."
+                  width={50}
+                  height={50}
+                  className="m-auto"
+                /> */}
+                <video src="/loading.mp4"></video>
+              </div>}>
               {children}
             </Suspense>;
             
