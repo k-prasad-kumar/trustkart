@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import { Suspense } from "react";
 import loading from "./loading.gif";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
