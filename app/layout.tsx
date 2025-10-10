@@ -37,7 +37,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Suspense fallback={<div className="w-full h-full flex items-center justify-center">
+            <Suspense fallback={<div className="w-full h-screen flex items-center justify-center">
               <Image src={loading} alt="Loading..." className="m-auto" />
             </div>}>
               {children}
